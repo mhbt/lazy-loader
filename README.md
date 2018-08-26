@@ -7,6 +7,7 @@ Javascript simple Lazy Loader
 2. method: Script Loading Method, Values : "async" | "defer" (optional | default none)
 3. integrity: Source integrity (optional)
 4. crossorigin : Souce CrossOrigin (optional)
+5. enque : if true it will insert before any exsisting script. For false it will append after everything in head.
 
 ## Example
 
