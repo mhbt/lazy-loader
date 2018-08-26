@@ -1,5 +1,5 @@
 
-### Remote Script# lazy-loader
+# lazy-loader
 Javascript simple Lazy Loader
 
 ## Parameters & Values
