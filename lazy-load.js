@@ -1,7 +1,6 @@
 (function(){
     "use strict";
-        function lazy_load(src,method = null, integrity = null, crossorigin = null){
-           
+        function lazyLoad(src,method = null, integrity = null, crossorigin = null, enque= null){
             let script = document.createElement("script");
             if (method === 'async'){
                 script.async = true;
@@ -16,11 +15,21 @@
                 script.crossOrigin = crossorigin;
             }
             script.src = src;
-            script.async = true;
             let head = document.getElementsByTagName("head")[0];
-            console.log(head);
-            head.appendChild(script);
-            console.log("Loaded script: " + src);
+            if(enque){
+                head.insertBefore(script, head.childNodes[5]);                
+            }else{
+                head.appendChild(script);
+            }
+            return new Promise((resolve, reject)=>{
+                script.onload = ()=>{
+                    resolve("Loaded script: " + src);
+                };
+                if (!src){
+                    reject("URL or relative path is required to add script.");
+                }
+            });
+            
         }
-        document.lazy_load = lazy_load;
+        document.lazyLoad = lazyLoad;
 })();

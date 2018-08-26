@@ -12,14 +12,23 @@ Javascript simple Lazy Loader
 
 ### Remote Script
 Load a remote script
-```
-    document.lazy_load('https://code.jquery.com/jquery-3.3.1.min.js', 'defer', "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", "anonymous");
+```javascript
+    document.lazyLoad('https://code.jquery.com/jquery-3.3.1.min.js', 'defer', "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", "anonymous");
 
 ```
 ### Local Script
 Load a local script
-```
-    document.lazy_load(data.js);
+```javascript
+    document.lazLoad(data.js);
 
+```
+### Promise Interface
+```javascript
+
+document.lazyLoad(src,[optional params])
+.then(data=>{
+    console.log(data);
+    //Do other Tasks
+})
 ```
 
